@@ -15,7 +15,7 @@ This repository will hold only freecodecamp.org official syllabus you can find o
 - [x] Relational database `in progress`
 - [ ] Back end development and APIs
 - [ ] Quality assurance
-- [x] Scientific computing with python
+- [ ] Scientific computing with python `paused`
 - [ ] Data analysis with python
 - [ ] Information security
 - [ ] Machine learning with python
