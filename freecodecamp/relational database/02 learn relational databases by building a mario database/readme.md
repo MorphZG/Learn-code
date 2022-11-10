@@ -10,7 +10,7 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 
 ### Basic statements and commands
 
-```postgresql
+```sql
 
 \l                                                          --list available databases
 \c database_name;                                           --connect to database
@@ -22,11 +22,14 @@ ALTER TABLE table_name ADD COLUMN column_name DATATYPE;     --add column
 ALTER TABLE table_name DROP COLUMN column_name;             --remove column
 ALTER TABLE table_name RENAME COLUMN column_name TO new_name;   --rename column
 INSERT INTO table_name(column_1, column_2) VALUES(value1, value2);  --insert row into table
-SELECT column_name FROM table_name;                             --view columns in a table, use * to show all columns
+SELECT column_name FROM table_name;                         --view columns in a table, use * to show all columns
 DELETE FROM table_name WHERE condition;                     --delete record from table
-DROP TABLE table_name;                                    --delete table from database
+DROP TABLE table_name;                                      --delete table from database
 ALTER DATABASE database_name RENAME TO new_database_name;   --rename database
 DROP DATABASE database_name;                                --delete database
+UPDATE table_name SET column_name=new_value WHERE condition;  --change value in a column
+SELECT columns_list FROM table_name ORDER BY expression ASC;  --order rows by expression in ASC or DESC order
+
 ```
 
 ### Datatypes
@@ -34,4 +37,4 @@ DROP DATABASE database_name;                                --delete database
 - One of common data types is `VARCHAR`, it's a short string of characters. You need to declare the maximum length `VARCHAR(30)`
 - Datatype `SERIAL` will make your column an `INTEGER` with a `NOT NULL` constraint and automatically increment the integer when a new row is added.
 
-#tags: postgresql, basic commands, create, alter, insert, select, drop, delete from,
+#tags: postgresql, basic commands, create, alter, insert, select, drop, delete from, update, order by,
