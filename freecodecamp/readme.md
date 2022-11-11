@@ -15,7 +15,7 @@ This repository will hold only freecodecamp.org official syllabus you can find o
 - [x] [Relational database](https://github.com/MorphZG/Learn-code/tree/main/freecodecamp/relational%20database) `in progress`
 - [ ] Back end development and APIs
 - [ ] Quality assurance
-- [ ] Scientific computing with python `paused`
+- [ ] [Scientific computing with python](https://github.com/MorphZG/Learn-code/tree/main/freecodecamp/scientific%20computing%20with%20python) `paused`
 - [ ] Data analysis with python
 - [ ] Information security
 - [ ] Machine learning with python
