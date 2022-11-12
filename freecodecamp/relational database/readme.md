@@ -11,8 +11,8 @@ Finally, you will learn Git, the version control system, an essential tool of ev
 ## Courses
 
 - [x] Learn bash by building a boilerplate
-- [x] Learn relational databases by building a Mario database `in progress`
-- [ ] Celestial bodies database
+- [x] Learn relational databases by building a Mario database
+- [ ] `in progress` Celestial bodies database
 - [ ] Learn bash scripting by building five programs
 - [ ] Learn SQL by building a student database: part 1
 - [ ] Learn SQL by building a student database: part 2
@@ -25,3 +25,4 @@ Finally, you will learn Git, the version control system, an essential tool of ev
 - [ ] Periodic table database
 - [ ] Number guessing game
 
+#tags: readme,

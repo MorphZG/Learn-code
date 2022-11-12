@@ -8,14 +8,21 @@ In this 165-lesson course, you will learn the basics of a relational database by
 
 Course starts with command `psql --username=freecodecamp --dbname=postgres` that starts the postgres shell. Type `\l` to list created databases and create new database with `CREATE DATABASE database_name`. I did not plan to write verbose readme even though i easily could. I will instead list important statements and add few notes i found good to know. All of this is absolute basics but as organized and persistent learner i must take notes. 
 
-### Basic datatype
+### Basic datatypes
 
 - One of common data types is `VARCHAR`, it's a short string of characters. You need to declare the maximum length `VARCHAR(30)`
 - `SERIAL` datatype will make your column an `INTEGER` with a `NOT NULL` constraint and automatically increment the integer when a new row is added.
 - `DATE` The postgresql supports the complete set of SQL date and times data types. They are used to represent date and time values. There are `TIMESTAMP`, `TIME`, `INTERVAL` and `DATE`
 - `NUMERIC(precision, scale)` can store decimal numbers. Can store 131072 digits before decimal point and 16383 after decimal point. Precision defines total number of digits, scale defines a fraction part behind decimal point. 2356.78 have precision of 6 and scale of 2. When declaring `NUMERIC` datatype we can ignore scale or both precision and scale.
 
-- You should set a primary key for every table.
+### Basic concepts
+
+- **Primary key**. It is a good practice to add a primary key to every table. A primary key is a column or a group of columns used to identify a row uniquely in a table. You define primary keys through primary key constraints. Technically, a primary key constraint is the combination of a not-null constraint and a UNIQUE constraint. A table can have one and only one primary key.
+- **Foreign key**. A foreign key is a column or a group of columns in a table that reference the primary key of another table. The table that contains the foreign key is called the referencing table or child table. And the table referenced by the foreign key is called the referenced table or parent table. A table can have multiple foreign keys depending on its relationships with other tables.
+- **Composite key**. Primary key composed of two or more columns. A composite key in SQL can be defined as a combination of multiple columns, and these columns are used to identify all the rows that are involved uniquely. Even though a single column can’t identify any row uniquely, a combination of over one column can uniquely identify any record. In other words, the combination key can also be described as a primary key that is being created by using multiple columns. However, the data types of different columns could differ from each other. You can also combine all the foreign keys to create a composite key in SQL.
+- **Junction table**. To create "many-to-many" relationship we need a junction table. Many items from one table can have relation with many items from another table. "many-to-many" relationships usually use a junction table to link two tables together, forming two "one-to-many" relationships.
+- **Join command**. Join is used to combine columns from one (self-join) or more tables based on the values of the common columns between related tables. The common columns are typically the primary key columns of the first table and foreign key columns of the second table. PostgreSQL supports inner join, left join, right join, full outer join, cross join, natural join, and a special kind of join called self-join.
+
 
 ### Basic statements and commands
 
@@ -27,26 +34,43 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 \d table_name;                                              --display table details
 CREATE DATABASE database_name;                              --create new database
 CREATE TABLE table_name();                                  --create new table
-ALTER TABLE table_name ADD COLUMN column_name DATATYPE;     --add column
-ALTER TABLE table_name DROP COLUMN column_name;             --remove column
-ALTER TABLE table_name RENAME COLUMN column_name TO new_name;   --rename column
-INSERT INTO table_name(column_1, column_2) VALUES(value1, value2);  --insert row into table
-SELECT column_name FROM table_name;                         --view columns in a table, use * to show all columns
-SELECT column_name FROM table_name WHERE condition;         --view columns in a table that match some condition eg. name='Mario'
+CREATE TABLE table_name(column_name DATATYPE CONSTRAINT);   --create new table with new column (no comma between)
 DELETE FROM table_name WHERE condition;                     --delete record from table
 DROP TABLE table_name;                                      --delete table from database
-ALTER DATABASE database_name RENAME TO new_database_name;   --rename database
 DROP DATABASE database_name;                                --delete database
-UPDATE table_name SET column_name=new_value WHERE condition;  --change value in a column
-SELECT columns_list FROM table_name ORDER BY expression ASC;  --sort rows by expression in ASC or DESC order
+ALTER DATABASE database_name RENAME TO new_database_name;   --rename database
+UPDATE table_name SET column_name=new_value WHERE condition;--change value in a column
+SELECT columns_name FROM table_name;                        --view columns in a table, use * to show all columns
+SELECT columns_name FROM table_name WHERE condition;        --view columns in a table that match some condition eg. name='Mario'
+SELECT columns_list FROM table_name ORDER BY expression ASC;--sort rows by expression in ASC or DESC order
+ALTER TABLE table_name DROP COLUMN column_name;             --remove column
+ALTER TABLE table_name RENAME COLUMN column_name TO new_name;--rename column
 ALTER TABLE table_name ADD PRIMARY KEY(column_name);        --add primary key, column that will serve as unique identifier for each row
+ALTER TABLE table_name ADD PRIMARY KEY(column1, column2);   --add a composite, primary key
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;     --drop constraint, eg. remove primary key (type '\d table_name' for more details)
-ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);    --add 'foreign key' column to a table that will relate with column from another table.
 ALTER TABLE table_name ADD UNIQUE(column_name);             --add 'UNIQUE' constraint to a column_name
-ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;   --add 'NOT NULL' constraint to a column_name
-
+ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;--add 'NOT NULL' constraint to a column_name
+  --add column, constraint is optional
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONSTRAINT;
+  --insert a row into a table
+INSERT INTO table_name(column_1, column_2) VALUES(value1, value2);
+  --insert multiple rows into a table
+INSERT INTO table_name(column_1, column_2) VALUES(value_1, value_2),(value_1, value_2);
+  --add 'foreign key' column that will relate with column from another table
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
+  --add 'foreign key' column with constraint
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONSTRAINT REFERENCES referenced_table_name(referenced_column_name);
+  --set existing column as a foreign key
+ALTER TABLE table_name ADD FOREIGN KEY(column_name) REFERENCES referenced_table(referenced_column);
+  --join command to show the info from two tables together
+SELECT columns_name FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;
+  --join command to show info from tables with "many-to-many" relations
+  --when many items from one table have relation with many items from another table we have to use a "junction table"
+SELECT columns FROM junction_table                                                  
+FULL JOIN table_1 ON junction_table.foreign_key_column = table_1.primary_key_column 
+FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_column;
 
 
 ```
 
-#tags: postgresql, basic commands, create, alter, insert, select, drop, delete from, update, order-sort, constraint,
+#tags: postgresql, basic commands, create, alter, insert, select, drop, delete from, update, order-sort, constraint, primary key, foreign key, composite key, join, junction table,
