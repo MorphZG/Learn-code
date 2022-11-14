@@ -12,10 +12,10 @@ This repository will hold only freecodecamp.org official syllabus you can find o
 - [ ] JavaScript algorithms and data structures
 - [ ] Front end development libraries
 - [ ] Data visualization
-- [x] [Relational database](https://github.com/MorphZG/Learn-code/tree/main/freecodecamp/relational%20database) `in progress`
+- [ ] [Relational database](https://github.com/MorphZG/Learn-code/tree/main/freecodecamp/relational%20database) `in progress`
 - [ ] Back end development and APIs
 - [ ] Quality assurance
-- [ ] [Scientific computing with python](https://github.com/MorphZG/Learn-code/tree/main/freecodecamp/scientific%20computing%20with%20python) `paused`
+- [ ] [Scientific computing with python](https://github.com/MorphZG/Learn-code/tree/main/freecodecamp/scientific%20computing%20with%20python) `in progress`
 - [ ] Data analysis with python
 - [ ] Information security
 - [ ] Machine learning with python

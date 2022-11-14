@@ -1,7 +1,6 @@
 # Learn relational databases by building a Mario database
 
 A relational database organizes data into tables that are linked together through relationships.
-
 In this 165-lesson course, you will learn the basics of a relational database by creating a PostgreSQL database filled with video game characters.
 
 ## My notes
@@ -11,7 +10,7 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 ### Basic datatypes
 
 - One of common data types is `VARCHAR`, it's a short string of characters. You need to declare the maximum length `VARCHAR(30)`
-- `SERIAL` datatype will make your column an `INTEGER` with a `NOT NULL` constraint and automatically increment the integer when a new row is added.
+- `SERIAL` datatype will make your column an `INTEGER` with a `NOT NULL` constraint and automatically increment the integer when a new row is added. Memory size of 4 bytes (range: 1 to 2,147,483,647); `SMALLSERIAL` with memory size of 2 bytes (range: 1 to 32,767); `BIGSERIAL` with memory size of 8 bytes (range: 1 to 9,223,372,036,854,775,807)
 - `DATE` The postgresql supports the complete set of SQL date and times data types. They are used to represent date and time values. There are `TIMESTAMP`, `TIME`, `INTERVAL` and `DATE`
 - `NUMERIC(precision, scale)` can store decimal numbers. Can store 131072 digits before decimal point and 16383 after decimal point. Precision defines total number of digits, scale defines a fraction part behind decimal point. 2356.78 have precision of 6 and scale of 2. When declaring `NUMERIC` datatype we can ignore scale or both precision and scale.
 
@@ -23,7 +22,6 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 - **Junction table**. To create "many-to-many" relationship we need a junction table. Many items from one table can have relation with many items from another table. "many-to-many" relationships usually use a junction table to link two tables together, forming two "one-to-many" relationships.
 - **Join command**. Join is used to combine columns from one (self-join) or more tables based on the values of the common columns between related tables. The common columns are typically the primary key columns of the first table and foreign key columns of the second table. PostgreSQL supports inner join, left join, right join, full outer join, cross join, natural join, and a special kind of join called self-join.
 
-
 ### Basic statements and commands
 
 ```sql
@@ -34,7 +32,7 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 \d table_name;                                              --display table details
 CREATE DATABASE database_name;                              --create new database
 CREATE TABLE table_name();                                  --create new table
-CREATE TABLE table_name(column_name DATATYPE CONSTRAINT);   --create new table with new column (no comma between)
+CREATE TABLE table_name(column_name DATATYPE CONSTRAINT);   --create new table with new columns (no comma between)
 DELETE FROM table_name WHERE condition;                     --delete record from table
 DROP TABLE table_name;                                      --delete table from database
 DROP DATABASE database_name;                                --delete database
@@ -69,7 +67,6 @@ SELECT columns_name FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column
 SELECT columns FROM junction_table                                                  
 FULL JOIN table_1 ON junction_table.foreign_key_column = table_1.primary_key_column 
 FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_column;
-
 
 ```
 

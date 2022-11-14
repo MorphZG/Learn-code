@@ -3,7 +3,7 @@
 ## Python for everybody
 
 These courses were created by Charles Severance (also known as Dr. Chuck). He is a Clinical Professor at the University of Michigan School of Information, where he teaches various technology-oriented courses including programming, database design, and web development. Free book in different formats (.epub, .pdf, .html...) and few extra resources related to the course are available at official web page.  
-[www.py4e.com](https://www.py4e.com/)
+[www.py4e.com](https://www.py4e.com/). Alternate reading materials and exercises can be found at [trinket.io](https://books.trinket.io/pfe/index.html) platform.
 
 - [x] Introduction: Why Program?
 - [x] Introduction: Hardware Architecture
