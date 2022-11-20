@@ -30,6 +30,7 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 \c database_name;                                           --connect to database
 \d                                                          --display all tables
 \d table_name;                                              --display table details
+ALTER DATABASE target_databer OWNER TO new_owner;           --change databse owner
 CREATE DATABASE database_name;                              --create new database
 CREATE TABLE table_name();                                  --create new table
 CREATE TABLE table_name(column_name DATATYPE CONSTRAINT);   --create new table with new columns (no comma between)
