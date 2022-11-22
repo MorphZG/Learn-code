@@ -10,6 +10,7 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 ### Basic datatypes
 
 - One of common data types is `VARCHAR`, it's a short string of characters. You need to declare the maximum length `VARCHAR(30)`
+- `TEXT` is a variable-length data type that can store long character strings. `TEXT` can hold up to 2,147,483,647 bytes of data. The actual storage used depends on the length of the character string
 - `SERIAL` datatype will make your column an `INTEGER` with a `NOT NULL` constraint and automatically increment the integer when a new row is added. Memory size of 4 bytes (range: 1 to 2,147,483,647); `SMALLSERIAL` with memory size of 2 bytes (range: 1 to 32,767); `BIGSERIAL` with memory size of 8 bytes (range: 1 to 9,223,372,036,854,775,807)
 - `DATE` The postgresql supports the complete set of SQL date and times data types. They are used to represent date and time values. There are `TIMESTAMP`, `TIME`, `INTERVAL` and `DATE`
 - `NUMERIC(precision, scale)` can store decimal numbers. Can store 131072 digits before decimal point and 16383 after decimal point. Precision defines total number of digits, scale defines a fraction part behind decimal point. 2356.78 have precision of 6 and scale of 2. When declaring `NUMERIC` datatype we can ignore scale or both precision and scale.
@@ -30,7 +31,8 @@ Course starts with command `psql --username=freecodecamp --dbname=postgres` that
 \c database_name;                                           --connect to database
 \d                                                          --display all tables
 \d table_name;                                              --display table details
-ALTER DATABASE target_databer OWNER TO new_owner;           --change databse owner
+\! clear                                                    --(CTRL + L) alternative, clear screen
+ALTER DATABASE target_database OWNER TO new_owner;           --change database owner
 CREATE DATABASE database_name;                              --create new database
 CREATE TABLE table_name();                                  --create new table
 CREATE TABLE table_name(column_name DATATYPE CONSTRAINT);   --create new table with new columns (no comma between)
@@ -38,10 +40,12 @@ DELETE FROM table_name WHERE condition;                     --delete record from
 DROP TABLE table_name;                                      --delete table from database
 DROP DATABASE database_name;                                --delete database
 ALTER DATABASE database_name RENAME TO new_database_name;   --rename database
-UPDATE table_name SET column_name=new_value WHERE condition;--change value in a column
+UPDATE table_name SET column_name=new_value WHERE condition;--change value in a row
+UPDATE table_name SET column1=new_value, column2=new_value WHERE condition;--change multiple values
 SELECT columns_name FROM table_name;                        --view columns in a table, use * to show all columns
 SELECT columns_name FROM table_name WHERE condition;        --view columns in a table that match some condition eg. name='Mario'
 SELECT columns_list FROM table_name ORDER BY expression ASC;--sort rows by expression in ASC or DESC order
+ALTER TABLE table_name RENAME COLUMN old_name TO new_name;  --rename column
 ALTER TABLE table_name DROP COLUMN column_name;             --remove column
 ALTER TABLE table_name RENAME COLUMN column_name TO new_name;--rename column
 ALTER TABLE table_name ADD PRIMARY KEY(column_name);        --add primary key, column that will serve as unique identifier for each row
@@ -49,6 +53,7 @@ ALTER TABLE table_name ADD PRIMARY KEY(column1, column2);   --add a composite, p
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;     --drop constraint, eg. remove primary key (type '\d table_name' for more details)
 ALTER TABLE table_name ADD UNIQUE(column_name);             --add 'UNIQUE' constraint to a column_name
 ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;--add 'NOT NULL' constraint to a column_name
+ALTER TABLE table_name ALTER COLUMN column_name TYPE DATATYPE;   --change datatype of a column
   --add column, constraint is optional
 ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONSTRAINT;
   --insert a row into a table
@@ -57,8 +62,11 @@ INSERT INTO table_name(column_1, column_2) VALUES(value1, value2);
 INSERT INTO table_name(column_1, column_2) VALUES(value_1, value_2),(value_1, value_2);
   --add 'foreign key' column that will relate with column from another table
 ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
-  --add 'foreign key' column with constraint
+  --add 'foreign key' column with another constraint
 ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONSTRAINT REFERENCES referenced_table_name(referenced_column_name);
+--create new table with new column as a foreign key,
+--add multiple tables at once by separating them with comma.
+CREATE TABLE table_name(column_name DATATYPE REFERENCES referenced_table(referenced_column), column_name DATATYPE CONSTRAINT);
   --set existing column as a foreign key
 ALTER TABLE table_name ADD FOREIGN KEY(column_name) REFERENCES referenced_table(referenced_column);
   --join command to show the info from two tables together

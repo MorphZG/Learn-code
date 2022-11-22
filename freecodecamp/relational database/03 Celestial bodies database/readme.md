@@ -16,27 +16,34 @@ If you leave your virtual machine, your database may not be saved. You can make 
 - [x]  Each primary key should automatically increment
 - [x]  Each table should have a name column
 - [x]  You should use the INT data type for at least two columns that are not a primary or foreign key
-- [ ]  You should use the NUMERIC data type at least once
-- [ ]  You should use the TEXT data type at least once
-- [ ]  You should use the BOOLEAN data type on at least two columns
-- [ ]  Each "star" should have a foreign key that references one of the rows in galaxy
-- [ ]  Each "planet" should have a foreign key that references one of the rows in star
-- [ ]  Each "moon" should have a foreign key that references one of the rows in planet
-- [ ]  Your database should have at least five tables
-- [ ]  Each table should have at least three rows
-- [ ]  The galaxy and star tables should each have at least six rows
-- [ ]  The planet table should have at least 12 rows
-- [ ]  The moon table should have at least 20 rows
-- [ ]  Each table should have at least three columns
-- [ ]  The galaxy, star, planet, and moon tables should each have at least five columns
-- [ ]  At least two columns per table should not accept NULL values
-- [ ]  At least one column from each table should be required to be UNIQUE
-- [ ]  All columns named name should be of type VARCHAR
-- [ ]  Each primary key column should follow the naming convention table_name_id. For example, the moon table should have a primary key column named moon_id
-- [ ]  Each foreign key column should have the same name as the column it is referencing
+- [x]  You should use the NUMERIC data type at least once
+- [x]  You should use the TEXT data type at least once
+- [x]  You should use the BOOLEAN data type on at least two columns
+- [x]  Each "star" should have a foreign key that references one of the rows in galaxy
+- [x]  Each "planet" should have a foreign key that references one of the rows in star
+- [x]  Each "moon" should have a foreign key that references one of the rows in planet
+- [x]  Your database should have at least five tables
+- [x]  Each table should have at least three rows
+- [x]  The galaxy and star tables should each have at least six rows
+- [x]  The planet table should have at least 12 rows
+- [x]  The moon table should have at least 20 rows
+- [x]  Each table should have at least three columns
+- [x]  The galaxy, star, planet, and moon tables should each have at least five columns
+- [x]  At least two columns per table should not accept NULL values
+- [x]  At least one column from each table should be required to be UNIQUE
+- [x]  All columns named name should be of type VARCHAR
+- [x]  Each primary key column should follow the naming convention table_name_id. For example, the moon table should have a primary key column named moon_id
+- [x]  Each foreign key column should have the same name as the column it is referencing
 
 ## My notes
 
+After creation of database and all required tables i realized that i know nothing about celestial bodies. Galaxies, stars and planets were never much of my interest and it's actually hard for me to create such database, not because i don't know how to do it but because i don't know what columns and relations i will need. So i started to investigate and google around. Put everything on a physical paper so i can visualize it better. Problem solved! Now i just have the easy part left, write the code.
+
+Backup current database with pg_dump. It will write a script that will rebuild your database from scratch. Read man page for pg_dump.
+
+```sh
+pg_dump -cC --inserts -U zoran databse_name > file_name.sql
+```
 
 
 #tags: readme, project
