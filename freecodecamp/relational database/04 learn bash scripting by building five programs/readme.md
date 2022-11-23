@@ -8,7 +8,7 @@ I have started by creating a simple shell script `questionnaire.sh`. I was first
 
 ### created scripts
 
-questionnaire.sh
-countdown.sh
+- questionnaire.sh
+- countdown.sh
 
 #tags: readme, bash
