@@ -16,6 +16,7 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+DROP DATABASE universe;
 --
 -- Name: universe; Type: DATABASE; Schema: -; Owner: freecodecamp
 --
@@ -86,7 +87,8 @@ CREATE TABLE public.galaxy (
     name character varying(15) NOT NULL,
     constellation character varying(15),
     size_kpc numeric(6,2),
-    type character varying(15)
+    type character varying(15),
+    description text
 );
 
 
@@ -267,25 +269,52 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: constellation; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.constellation VALUES (1, 'aquarius', 'water bearer');
+INSERT INTO public.constellation VALUES (2, 'aries', 'ram');
+INSERT INTO public.constellation VALUES (3, 'capricornus', 'sea goat');
+INSERT INTO public.constellation VALUES (4, 'leo', 'lion');
+INSERT INTO public.constellation VALUES (5, 'sagittarius', 'archer');
+INSERT INTO public.constellation VALUES (6, 'taurus', 'bull');
+INSERT INTO public.constellation VALUES (7, 'virgo', 'virgin');
 
 
 --
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.galaxy VALUES (1, 'andromeda', 'andromeda', 46.56, 'SA(s)b');
-INSERT INTO public.galaxy VALUES (2, 'milky way', 'sagittarius', 26.80, 'Sb');
-INSERT INTO public.galaxy VALUES (3, 'sombrero', 'virgo', 15.00, 'SA(s)a');
-INSERT INTO public.galaxy VALUES (4, 'triangulum', 'triangulum', 18.74, 'SA(s)cd');
-INSERT INTO public.galaxy VALUES (5, 'centaurus a', 'centaurus', 18.39, 'S0');
-INSERT INTO public.galaxy VALUES (6, 'messier 81', 'ursa major', 29.44, 'SA(s)ab');
-INSERT INTO public.galaxy VALUES (7, 'sculptor', 'sculptor', 27.59, 'SAB(s)c');
+INSERT INTO public.galaxy VALUES (1, 'andromeda', 'andromeda', 46.56, 'SA(s)b', NULL);
+INSERT INTO public.galaxy VALUES (2, 'milky way', 'sagittarius', 26.80, 'Sb', NULL);
+INSERT INTO public.galaxy VALUES (3, 'sombrero', 'virgo', 15.00, 'SA(s)a', NULL);
+INSERT INTO public.galaxy VALUES (4, 'triangulum', 'triangulum', 18.74, 'SA(s)cd', NULL);
+INSERT INTO public.galaxy VALUES (5, 'centaurus a', 'centaurus', 18.39, 'S0', NULL);
+INSERT INTO public.galaxy VALUES (6, 'messier 81', 'ursa major', 29.44, 'SA(s)ab', NULL);
+INSERT INTO public.galaxy VALUES (7, 'sculptor', 'sculptor', 27.59, 'SAB(s)c', NULL);
 
 
 --
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES (1, 'moon', NULL, 3474, true, 3);
+INSERT INTO public.moon VALUES (2, 'io', 1610, 3630, true, 5);
+INSERT INTO public.moon VALUES (3, 'europa', 1610, 3138, true, 5);
+INSERT INTO public.moon VALUES (4, 'ganymede', 1610, 5268, true, 5);
+INSERT INTO public.moon VALUES (5, 'callisto', 1610, 4820, true, 5);
+INSERT INTO public.moon VALUES (6, 'mimas', 1789, 396, true, 6);
+INSERT INTO public.moon VALUES (7, 'enceladus', 1789, 504, true, 6);
+INSERT INTO public.moon VALUES (8, 'tethys', 1684, 1066, true, 6);
+INSERT INTO public.moon VALUES (9, 'dione', 1684, 1123, true, 6);
+INSERT INTO public.moon VALUES (10, 'rhea', 1672, 1528, true, 6);
+INSERT INTO public.moon VALUES (11, 'titan', 1655, 5152, true, 6);
+INSERT INTO public.moon VALUES (12, 'iapetus', 1671, 1470, true, 6);
+INSERT INTO public.moon VALUES (13, 'miranda', 1948, 471, true, 7);
+INSERT INTO public.moon VALUES (14, 'ariel', 1851, 1158, true, 7);
+INSERT INTO public.moon VALUES (15, 'umbriel', 1851, 1168, true, 7);
+INSERT INTO public.moon VALUES (16, 'titania', 1787, 1578, true, 7);
+INSERT INTO public.moon VALUES (17, 'oberon', 1787, 1522, true, 7);
+INSERT INTO public.moon VALUES (18, 'triton', 1846, 2706, true, 8);
+INSERT INTO public.moon VALUES (19, 'charon', 1978, 1207, true, 10);
+INSERT INTO public.moon VALUES (20, 'hiiaka', 2005, 300, false, 11);
 
 
 --

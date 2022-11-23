@@ -37,13 +37,12 @@ If you leave your virtual machine, your database may not be saved. You can make 
 
 ## My notes
 
-After creation of database and all required tables i realized that i know nothing about celestial bodies. Galaxies, stars and planets were never much of my interest and it's actually hard for me to create such database, not because i don't know how to do it but because i don't know what columns and relations i will need. So i started to investigate and google around. Put everything on a physical paper so i can visualize it better. Problem solved! Now i just have the easy part left, write the code.
+After creation of database and all required tables i realized that i know nothing about celestial bodies. Galaxies, stars and planets were never much of my interest and it's actually hard for me to create such database, not because i don't know how to do it but because i don't know what columns and relations i will need. So i started to investigate and google around. Put everything on a physical paper so i can visualize it better. Problem solved! Now i just have the easy part left, write the code and input the data.
 
 Backup current database with pg_dump. It will write a script that will rebuild your database from scratch. Read man page for pg_dump.
 
 ```sh
 pg_dump -cC --inserts -U zoran databse_name > file_name.sql
 ```
-
 
 #tags: readme, project
