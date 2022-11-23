@@ -5,7 +5,7 @@ In this 165-lesson course, you will learn the basics of a relational database by
 
 ## My notes
 
-Course starts with command `psql --username=freecodecamp --dbname=postgres` that starts the postgres shell. Type `\l` to list created databases and create new database with `CREATE DATABASE database_name`. I did not plan to write verbose readme even though i easily could. I will instead list important statements and add few notes i found good to know. All of this is absolute basics but as organized and persistent learner i must take notes. 
+Course starts with command `psql --username=freecodecamp --dbname=postgres` that starts the postgres shell. Type `\l` to list created databases and create new database with `CREATE DATABASE database_name`. I did not plan to write verbose readme even though i easily could. I will instead list important statements and add few notes i found good to know. All of this is absolute basics but as organized and persistent learner i must take notes.
 
 ### Basic datatypes
 
