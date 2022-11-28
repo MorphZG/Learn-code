@@ -10,16 +10,16 @@ Finally, you will learn Git, the version control system, an essential tool of ev
 - [x] Learn bash by building a boilerplate
 - [x] Learn relational databases by building a Mario database
 - [x] **Project:** Celestial bodies database
-- [ ] Learn bash scripting by building five programs
+- [x] Learn bash scripting by building five programs
 - [ ] Learn SQL by building a student database: part 1
 - [ ] Learn SQL by building a student database: part 2
-- [ ] **Project** World cup database
+- [ ] **Project:** World cup database
 - [ ] Learn advanced bash by building a kitty ipsum translator
 - [ ] Learn bash and SQL by building a bike rental shop
-- [ ] **Project** Salon appointment Scheduler
+- [ ] **Project:** Salon appointment Scheduler
 - [ ] Learn nano by building a castle
 - [ ] Learn git by building an SQL reference object
-- [ ] **Project** Periodic table database
-- [ ] **Project** Number guessing game
+- [ ] **Project:** Periodic table database
+- [ ] **Project:** Number guessing game
 
 #tags: readme,
