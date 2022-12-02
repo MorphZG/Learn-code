@@ -37,6 +37,7 @@ CREATE DATABASE database_name;                              --create new databas
 CREATE TABLE table_name();                                  --create new table
 CREATE TABLE table_name(column_name DATATYPE CONSTRAINT);   --create new table with new columns (no comma between)
 DELETE FROM table_name WHERE condition;                     --delete record from table
+TRUNCATE table_name1, table_name2;                          --delete all records from the table
 DROP TABLE table_name;                                      --delete table from database
 DROP DATABASE database_name;                                --delete database
 ALTER DATABASE database_name RENAME TO new_database_name;   --rename database
