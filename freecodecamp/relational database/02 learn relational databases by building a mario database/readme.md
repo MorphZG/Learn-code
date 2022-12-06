@@ -45,6 +45,7 @@ UPDATE table_name SET column_name=new_value WHERE condition;--change value in a 
 UPDATE table_name SET column1=new_value, column2=new_value WHERE condition;--change multiple values
 SELECT columns_name FROM table_name;                        --view columns in a table, use * to show all columns
 SELECT columns_name FROM table_name WHERE condition;        --view columns in a table that match some condition eg. name='Mario'
+SELECT * FROM table_name WHERE condition_1 AND (condition_2 OR condition_2) -- multiple conditions;
 SELECT columns_list FROM table_name ORDER BY expression ASC;--sort rows by expression in ASC or DESC order
 ALTER TABLE table_name RENAME COLUMN old_name TO new_name;  --rename column
 ALTER TABLE table_name DROP COLUMN column_name;             --remove column
@@ -72,6 +73,7 @@ CREATE TABLE table_name(column_name DATATYPE REFERENCES referenced_table(referen
 ALTER TABLE table_name ADD FOREIGN KEY(column_name) REFERENCES referenced_table(referenced_column);
   --join command to show the info from two tables together
 SELECT columns_name FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;
+SELECT * FROM table_1 FULL JOIN table_2 ON table_1.foreign_key_column = table_2.foreign_key_column;
   --join command to show info from tables with "many-to-many" relations
   --when many items from one table have relation with many items from another table we have to use a "junction table"
 SELECT columns FROM junction_table                                                  

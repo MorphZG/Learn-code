@@ -12,7 +12,7 @@ Finally, you will learn Git, the version control system, an essential tool of ev
 - [x] **Project:** Celestial bodies database
 - [x] Learn bash scripting by building five programs
 - [x] Learn SQL by building a student database: part 1
-- [ ] Learn SQL by building a student database: part 2
+- [x] Learn SQL by building a student database: part 2
 - [ ] **Project:** World cup database
 - [ ] Learn advanced bash by building a kitty ipsum translator
 - [ ] Learn bash and SQL by building a bike rental shop
