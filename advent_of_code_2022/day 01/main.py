@@ -29,11 +29,12 @@ for key, value in elfDict.items():
 
 # format the output
 print(
-f"""
+    f"""
 Elf index: {total.index(max(total))}
 Total calories: {max(total)}
 Packages: {elfDict[f"elf{59}"]}
-""")
+"""
+)
 
 # ----------- Part 2 -----------
 
@@ -43,6 +44,4 @@ print("Total calories of top three elves")
 print(total[0:3])
 print(sum(total[0:3]))
 
-
-
-#tags: exercise, dictionary, setdefault(), readline, i/o stream
+# tags: exercise, dictionary, setdefault(), readline, i/o stream
